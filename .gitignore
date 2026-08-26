@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-CLAUDE.md
-AGENTS.md
+nextjs-learning/CLAUDE.md
+nextjs-learning/AGENTS.md
 
-package-lock.json
+nextjs-learning/package-lock.json
