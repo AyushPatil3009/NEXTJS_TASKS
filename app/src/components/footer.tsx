@@ -2,48 +2,48 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8 mt-auto">
+    <footer className="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-16 pb-8 mt-auto border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12">
           
           {/* Brand & Description */}
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="text-3xl font-black tracking-tighter text-indigo-400 mb-4 inline-block">
-              NovaTech.
+            <Link href="/" className="text-3xl font-black tracking-tighter text-indigo-600 dark:text-indigo-400 mb-4 inline-block">
+              TechEvents.
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm mt-4">
-              We provide the best smart technology products and services to make your life easier, more secure, and infinitely cooler.
+            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-sm mt-4">
+              We provide the best tech meetups and events to make your professional life easier, more secure, and infinitely cooler.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider mb-6 text-gray-200">Quick Links</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-6 text-slate-900 dark:text-slate-200">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link href="/" className="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Home</Link></li>
-              <li><Link href="/about" className="text-gray-400 hover:text-indigo-400 transition-colors text-sm">About Us</Link></li>
-              <li><Link href="/products" className="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Products</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Services</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Contact</Link></li>
+              <li><Link href="/" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">Home</Link></li>
+              <li><Link href="/about" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">About Us</Link></li>
+              <li><Link href="/products" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">Products</Link></li>
+              <li><Link href="/services" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">Services</Link></li>
+              <li><Link href="/contact" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm">Contact</Link></li>
             </ul>
           </div>
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider mb-6 text-gray-200">Legal</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-6 text-slate-900 dark:text-slate-200">Legal</h3>
             <ul className="space-y-3">
-              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</Link></li>
-              <li><Link href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Return Policy</Link></li>
+              <li><Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm">Privacy Policy</Link></li>
+              <li><Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm">Terms of Service</Link></li>
+              <li><Link href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors text-sm">Return Policy</Link></li>
             </ul>
           </div>
 
         </div>
 
         {/* Bottom Bar & Copyright */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm text-center md:text-left">
-            &copy; {new Date().getFullYear()} NovaTech. All rights reserved.
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-500 dark:text-slate-500 text-sm text-center md:text-left">
+            &copy; {new Date().getFullYear()} TechEvents. All rights reserved.
           </p>
           
           {/* Social Icons (Mock) */}

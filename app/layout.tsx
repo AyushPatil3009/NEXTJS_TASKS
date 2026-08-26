@@ -5,6 +5,12 @@ import "./globals.css";
 import Navbar from "./src/components/navbar";
 import Footer from "./src/components/footer";
 
+// 1. Import cookies
+import { cookies } from "next/headers";
+
+// Add this import at the top
+import { ThemeProvider } from "./src/context/ThemeContext";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,16 +30,24 @@ export const metadata: Metadata = {
   description: "Smart technology products by NovaTech.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+
+ // 2. Read the cookie! (Next.js 15+ cookies() is a Promise)
+  const cookieStore = await cookies();
+
+  const isAdmin= cookieStore.get("role")?.value==="admin";
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar/>
-        {children}
-        <Footer/>
+        {/* Wrap your layout in the Client Provider */}
+        <ThemeProvider>
+          <Navbar isAdmin={isAdmin} />
+          {children}
+          <Footer />
+        </ThemeProvider>
         </body>
     </html>
   );

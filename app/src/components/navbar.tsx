@@ -4,27 +4,34 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export default function Navbar() {
+import { loginAsAdmin, logout } from "../../actions/authActions";
+import { useTheme } from "../../src/context/ThemeContext";
+
+// Update the component definition to accept the prop
+export default function Navbar({ isAdmin = false }: { isAdmin?: boolean }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+
+  // Call the hook here
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Products", href: "/products" },
+    { name: "Events", href: "/events" },
     { name: "Services", href: "/services" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <nav className="bg-white dark:bg-gray-900 sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 shadow-sm transition-colors duration-300">
+    <nav className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           
           {/* Logo / Brand */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-2xl font-black tracking-tighter text-indigo-600 dark:text-indigo-400">
-              NovaTech.
+              TechEvents.
             </Link>
           </div>
 
@@ -46,8 +53,32 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <div className="inline-flex items-center px-1 pt-1 text-sm font-semibold transition-colors h-16">
+              {/* Dark Mode Toggle Button */}
+              <button 
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              >
+                {theme === 'light' ? '🌙' : '☀️'}
+              </button>
+            </div>
+            <div className="inline-flex items-center px-1 pt-1 text-sm font-semibold transition-colors h-16">
+            {/* Admin Login/Logout Buttons */}
+            {isAdmin ? (
+              <form action={logout}>
+                <button className="bg-red-500/10 text-red-500 hover:bg-red-500/20 px-4 py-2 rounded-lg text-sm font-bold transition-colors">
+                  Logout Admin
+                </button>
+              </form>
+            ) : (
+              <form action={loginAsAdmin}>
+                <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-sm">
+                  Login as Admin
+                </button>
+              </form>
+            )}
           </div>
-
+          </div>
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center">
             <button
