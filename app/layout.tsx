@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "./src/components/navbar";
-import Footer from "./src/components/footer";
+import Navbar from "../src/components/navbar";
+import Footer from "../src/components/footer";
 
 // 1. Import cookies
 import { cookies } from "next/headers";
 
 // Add this import at the top
-import { ThemeProvider } from "./src/context/ThemeContext";
+import { ThemeProvider } from "../src/context/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,7 +44,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         {/* Wrap your layout in the Client Provider */}
         <ThemeProvider>
-          <Navbar isAdmin={isAdmin} />
+          <Navbar />
           {children}
           <Footer />
         </ThemeProvider>

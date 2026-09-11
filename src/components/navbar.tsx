@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { loginAsAdmin, logout } from "../../actions/authActions";
-import { useTheme } from "../../src/context/ThemeContext";
+import { loginAsAdmin, logout } from "../../app/actions/authActions";
+import { useTheme } from "../context/ThemeContext";
 
 // Update the component definition to accept the prop
 export default function Navbar({ isAdmin = false }: { isAdmin?: boolean }) {
@@ -18,7 +18,7 @@ export default function Navbar({ isAdmin = false }: { isAdmin?: boolean }) {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Events", href: "/events" },
+    { name: "Todos", href: "/todos" },
     { name: "Services", href: "/services" },
     { name: "Contact", href: "/contact" },
   ];
