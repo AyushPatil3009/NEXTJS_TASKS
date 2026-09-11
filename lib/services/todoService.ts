@@ -7,7 +7,7 @@ import {
   PaginatedResponse 
 } from "@/lib/types/todo";
 
-// Replace lines 11-73 in lib/services/todoService.ts with:
+// In-memory data store for Phase 4 (Will be swapped with Prisma in Phase 5!)
 const globalStore = globalThis as unknown as { __todos?: Todo[] };
 if (!globalStore.__todos) {
   globalStore.__todos = [
@@ -83,87 +83,10 @@ if (!globalStore.__todos) {
     createdAt: new Date(Date.now() - 3600000 * 2).toISOString(),
     updatedAt: new Date(Date.now() - 3600000 * 2).toISOString(),
   }
-    // ... rest of your mock tasks ...
   ];
 }
 // Always reference the global shared store:
 let todos = globalStore.__todos;
-
-// In-memory data store for Phase 4 (Will be swapped with Prisma in Phase 5!)
-// let todos: Todo[] = [
-//   {
-//     id: "task-1",
-//     title: "Implement Next.js Route Handlers",
-//     description: "Build RESTful GET, POST, PATCH, and DELETE endpoints with standard error handling.",
-//     status: "in_progress",
-//     priority: "high",
-//     category: "learning",
-//     dueDate: "2026-09-12",
-//     userId: "user-1",
-//     createdAt: new Date(Date.now() - 3600000 * 24 * 2).toISOString(),
-//     updatedAt: new Date(Date.now() - 3600000 * 12).toISOString(),
-//   },
-//   {
-//     id: "task-2",
-//     title: "Configure Tailwind CSS v4 Dark Mode",
-//     description: "Ensure custom variants and glassmorphism styling work across all components.",
-//     status: "completed",
-//     priority: "medium",
-//     category: "work",
-//     dueDate: "2026-09-10",
-//     userId: "user-1",
-//     createdAt: new Date(Date.now() - 3600000 * 24 * 5).toISOString(),
-//     updatedAt: new Date(Date.now() - 3600000 * 24 * 1).toISOString(),
-//   },
-//   {
-//     id: "task-3",
-//     title: "Setup Prisma Schema & Migrations",
-//     description: "Design relational models for Users and Tasks with PostgreSQL in Phase 5.",
-//     status: "pending",
-//     priority: "high",
-//     category: "learning",
-//     dueDate: "2026-09-18",
-//     userId: "user-1",
-//     createdAt: new Date(Date.now() - 3600000 * 10).toISOString(),
-//     updatedAt: new Date(Date.now() - 3600000 * 10).toISOString(),
-//   },
-//   {
-//     id: "task-4",
-//     title: "Weekly Grocery & Meal Prep",
-//     description: "Buy fresh vegetables, fruits, and groceries for the week.",
-//     status: "pending",
-//     priority: "low",
-//     category: "personal",
-//     dueDate: "2026-09-14",
-//     userId: "user-1",
-//     createdAt: new Date(Date.now() - 3600000 * 5).toISOString(),
-//     updatedAt: new Date(Date.now() - 3600000 * 5).toISOString(),
-//   },
-//   {
-//     id: "task-5",
-//     title: "Submit Q3 Performance Review",
-//     description: "Complete self-assessment and submit metrics before the deadline.",
-//     status: "pending",
-//     priority: "high",
-//     category: "urgent",
-//     dueDate: "2026-09-11",
-//     userId: "user-1",
-//     createdAt: new Date(Date.now() - 3600000 * 20).toISOString(),
-//     updatedAt: new Date(Date.now() - 3600000 * 20).toISOString(),
-//   },
-//   {
-//     id: "task-6",
-//     title: "Refactor Auth Middleware",
-//     description: "Prepare session validation hooks for NextAuth integration in Phase 6.",
-//     status: "pending",
-//     priority: "medium",
-//     category: "work",
-//     dueDate: "2026-09-22",
-//     userId: "user-1",
-//     createdAt: new Date(Date.now() - 3600000 * 2).toISOString(),
-//     updatedAt: new Date(Date.now() - 3600000 * 2).toISOString(),
-//   }
-// ];
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
